@@ -4,8 +4,10 @@
         <h1>{{ .Title }}</h1>
         <h2 class="subtitle">{{ .Description | markdownify }}</h2>
         <h2 class="headline">
+        {{ if .Params.showthedate }}
         {{ .Date.Format "January 2, 2006" }}
         <br>
+        {{ end }}
         {{ with .Params.tags }}
         {{ if ge (len .) 1 }}
             {{ range . }}
